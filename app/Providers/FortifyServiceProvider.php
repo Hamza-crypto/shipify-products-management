@@ -21,7 +21,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Fortify::registerView('auth.register');
+//        Fortify::registerView('auth.register');
         Fortify::loginView('auth.login');
         Fortify::requestPasswordResetLinkView('auth.forgot-password');
         Fortify::resetPasswordView(function (Request $request) {
