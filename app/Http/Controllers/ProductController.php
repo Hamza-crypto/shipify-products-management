@@ -28,6 +28,7 @@ class ProductController extends Controller
         $key = $request->key_type;
 
         $handle = fopen($_FILES['file']['tmp_name'], "r");
+        app('log')->channel('products')->info('Start updating products');
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                 $product = Product::where($key, $data[0])->first();
 
@@ -46,6 +47,7 @@ class ProductController extends Controller
 
                 }
         }
+        app('log')->channel('products')->info('End updating products');
         fclose($handle);
 
         Session::flash('success', 'Products updated successfully');

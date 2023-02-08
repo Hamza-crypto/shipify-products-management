@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('products:fetch')->everyMinute();
+        $schedule->command('update-count:bigcommerce')->daily();
     }
 
 
