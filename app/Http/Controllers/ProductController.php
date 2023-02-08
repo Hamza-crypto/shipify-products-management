@@ -65,13 +65,13 @@ class ProductController extends Controller
 
         $count = 0;
         foreach ($products as $product) {
-            $this->shopify_call(
-                $product->store->token,
-                $product->store->slug,
-                sprintf('/admin/api/2023-01/products/%s.json', $product->id),
-                [],
-                'DELETE'
-            );
+//            $this->shopify_call(
+//                $product->store->token,
+//                $product->store->slug,
+//                sprintf('/admin/api/2023-01/products/%s.json', $product->id),
+//                [],
+//                'DELETE'
+//            );
             $product->update(['status' => 'deleted']);
             $count++;
         }
@@ -239,8 +239,8 @@ class ProductController extends Controller
             $data[] = [
                 'Product ID' =>  sprintf('="%s"', $product->product_id),
                 'Title' => $product->title,
-                'SKU' => $product->sku,
-                'UPC' => $product->upc
+                'SKU' => sprintf('="%s"', $product->sku),
+                'UPC' => sprintf('="%s"', $product->upc)
             ];
         }
 

@@ -6,7 +6,23 @@
     <div class="text-center mt-4">
         <h1 class="h2">Login</h1>
         <p class="lead">
-            Login to your account to continue
+            <?php
+            $host = $_SERVER['HTTP_HOST'];
+            $var1 = ltrim($host,'www.') ;
+            $var1 = rtrim($var1,'report.com') ;
+            $var1 = rtrim($var1,'.store') ;
+            $var2 = strtoupper($var1);
+            try {
+                include '../inc/' . $var1 . '-style.css';
+            } catch (Exception $e) {
+                echo "Error: " . $e->getMessage();
+            }
+
+
+            echo "<img  style='max-width:150px' src=https://www.palidn.com/" . $var1 . "-logo.svg";
+            ?>
+            Please login to your account to continue
+
         </p>
     </div>
 
